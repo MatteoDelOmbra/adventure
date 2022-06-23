@@ -1,56 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './res/logo.svg';
 import { Counter } from './features/counter/Counter';
-import './App.css';
+import './styles/App.css';
+import { Heroes } from './features/heroes/heroes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="App" style={{ borderStyle: 'solid', display: 'flex', flexDirection: 'row' }}>
+
+      <div id='side-panel' style={{ borderStyle: 'solid', display: 'flex', flexDirection: 'column' }}>
+        <div id='hero-list'>Tu będzie lista</div>                                         {/*React component*/}
+        <button id='generate-mob'>Zmiana stworka</button>                                 {/*React component*/}
+        <button id='region'>Zmiana regionu</button>                                       {/*React component*/}
+      </div>
+
+      <div id='main'>
+        <div id='hero-creator' style={{ borderStyle: 'solid' }}>Tworzenie postaci</div>   {/*React component*/}
+        <div id='wrapper' style={{ display: 'flex', flexDirection: 'row' }}>
+          <div id='game'>
+            <div id='hero-info' style={{ borderStyle: 'solid' }}>Tu są dane postaci</div> {/*React component*/}
+            <div id='run' style={{ borderStyle: 'solid' }}>Tu jest atak!</div>            {/*React component*/}
+          </div>
+
+          <div id='arsenal' style={{ borderStyle: 'solid' }}>Tu jest arsenal</div>        {/*React component*/}
+        </div>
+      </div>
     </div>
   );
 }
