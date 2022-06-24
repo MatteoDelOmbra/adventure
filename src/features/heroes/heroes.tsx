@@ -1,17 +1,24 @@
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { increment, selectHeroes } from "./heroesSlice";
-import { increment as incNum } from "../counter/counterSlice";
+import { IHero, select, selectHeroes } from "./heroesSlice";
 
 export function Heroes() {
     const heroes = useAppSelector(selectHeroes)
     const dispatch = useAppDispatch();
     return (
         <div>
-            <p>This is my list named: {heroes.title}</p>
-            <p>It's {heroes.list.length} length</p>
-            <button onClick={() => dispatch(increment())}>Add a hero</button>
-            <button onClick={() => dispatch(incNum())}>Add a number</button>
+            <p>Available Heroes:</p>
+            <ul>
+                {heroes.map((hero: IHero) =>
+                    <li>
 
+                        <a href="#" onClick={() => dispatch(select(hero.id))} >
+                            {hero.name}
+                        </a>
+
+                    </li>
+                )}
+            </ul>
         </div>
     )
 }
