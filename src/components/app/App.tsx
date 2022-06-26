@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from './res/logo.svg';
-import { Counter } from './features/counter/Counter';
-import './styles/App.css';
-import { Heroes } from './features/heroes/heroes';
-import { Hero } from './features/heroes/hero';
+import { Counter } from '../counter/Counter';
+import { Heroes } from '../heroes/heroes';
+import { Hero } from '../heroe/hero';
+import './App.css';
 
 function App() {
   return (

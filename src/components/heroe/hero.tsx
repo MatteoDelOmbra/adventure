@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { IHero as IHero, selectHeroId, selectHeroes, selectHeroesState, Heroes } from "./heroesSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { IHero as IHero, selectHeroId, selectHeroes, selectHeroesState, Heroes } from "../../store/heroes/heroesSlice";
 
 export function Hero() {
     const heroesState: Heroes = useAppSelector(selectHeroesState)

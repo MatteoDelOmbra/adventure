@@ -1,6 +1,6 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { IHero, select, selectHeroes } from "./heroesSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { IHero, select, selectHeroes } from "../../store/heroes/heroesSlice";
 
 export function Heroes() {
     const heroes = useAppSelector(selectHeroes)
