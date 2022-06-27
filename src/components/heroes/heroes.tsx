@@ -1,6 +1,7 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { IHero, select, selectHeroes } from "../../store/heroes/heroesSlice";
+import { HeroSelector } from "../heroSelector/heroSelector";
 
 export function Heroes() {
     const heroes = useAppSelector(selectHeroes)
@@ -10,12 +11,8 @@ export function Heroes() {
             <p>Available Heroes:</p>
             <ul>
                 {heroes.map((hero: IHero) =>
-                    <li>
-
-                        <a href="#" onClick={() => dispatch(select(hero.id))} >
-                            {hero.name}
-                        </a>
-
+                    <li key={hero.id.toString()}>
+                        <HeroSelector hero={hero} />
                     </li>
                 )}
             </ul>

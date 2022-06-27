@@ -1,7 +1,6 @@
 import { Heroes } from '../heroes/heroes';
-import { Hero } from '../heroe/hero';
-import { Title } from './App.styles';
-import React from 'react';
+import { HeroBio } from '../heroBio/heroBio';
+import { ColumnWrapper, Container, LeftPanel, RightPanel, GamePanel, ArsenalPanel, CreatorPanel } from './App.styles';
 import { Formik, useFormik } from 'formik';
 import * as Yup from "yup"
 
@@ -17,18 +16,17 @@ function App() {
   })
 
   return (
-    <React.Fragment>
-      <Title>Adventure Game!</Title>
-      <div className="App" style={{ borderStyle: 'solid', display: 'flex', flexDirection: 'row' }}>
-        <div id='side-panel' style={{ borderStyle: 'solid', display: 'flex', flexDirection: 'column' }}>
+    <Container>
+      <h1>Adventure Game!</h1>
+      <ColumnWrapper>
+        <LeftPanel>
           <Heroes /> {/*przerob na liste komponentow hero */}
-
           <button id='generate-mob'>Zmiana stworka</button>                                 {/*React component*/}
           <button id='region'>Zmiana regionu</button>                                       {/*React component*/}
-        </div>
+        </LeftPanel>
 
-        <div id='main'>
-          <div id='hero-creator' style={{ borderStyle: 'solid' }}>
+        <RightPanel>
+          <CreatorPanel>
             Tworzenie postaci
             <form onSubmit={formState.handleSubmit}>
               <input
@@ -42,20 +40,19 @@ function App() {
               {formState.touched.name && formState.errors.name ? <p>{formState.errors.name}</p> : null}
               <button type='submit'>Click me!</button>
             </form>
-          </div>                                                                            {/*React component*/}
+          </CreatorPanel>                                                                            {/*React component*/}
 
-          <div id='wrapper' style={{ display: 'flex', flexDirection: 'row' }}>
-            <div id='game'>
-              <Hero />
+          <ColumnWrapper>
+            <GamePanel>
+              <HeroBio />
+              <button id='run'>Attack monster!</button>                                    {/*React component*/}
+            </GamePanel>
 
-              <div id='run' style={{ borderStyle: 'solid' }}>Tu jest atak!</div>            {/*React component*/}
-            </div>
-
-            <div id='arsenal' style={{ borderStyle: 'solid' }}>Tu jest arsenal</div>        {/*React component*/}
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
+            <ArsenalPanel>Here's arsenal</ArsenalPanel>        {/*React component*/}
+          </ColumnWrapper>
+        </RightPanel>
+      </ColumnWrapper>
+    </Container>
   );
 }
 
