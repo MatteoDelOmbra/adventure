@@ -1,26 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { Currency, Region, regionalCurrency } from "../../utils/regional"
 import { RootState } from "../store"
 
-export enum Origin {
-    pl,
-    us,
-    it,
-    uk
-}
-
-export enum Currency {
-    PLN,
-    USD,
-    EUR,
-    GBP
-}
-
 export interface IHero {
-    id: Number
-    name: String
-    origin: Origin
+    id: number
+    name: string
+    origin: Region
     currency: Currency
-    money: Number,
+    money: Number
     arsenal: Array<Number> //id of bought weapons
     equippedWeapon?: Number //id of weapon
 }
@@ -30,21 +17,20 @@ export interface Heroes {
     all: Array<IHero>
 }
 
-
 const initialState: Heroes = {
     all: [{
         id: 1,
         name: "Killjoy",
-        origin: Origin.pl,
-        currency: Currency.PLN,
+        origin: "pl",
+        currency: regionalCurrency["pl"],
         money: 100,
         arsenal: [],
     },
     {
         id: 2,
         name: "Whither",
-        origin: Origin.it,
-        currency: Currency.EUR,
+        origin: "it",
+        currency: regionalCurrency["it"],
         money: 23.78,
         arsenal: [],
     }]
@@ -52,7 +38,7 @@ const initialState: Heroes = {
 
 
 export const heroesSlice = createSlice({
-    name: 'heroes',
+    name: "heroes",
     initialState,
     reducers: {
         add: (state, action: PayloadAction<IHero>) => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-font-family: 'Brush Script MT', cursive;
+font-family: "Brush Script MT", cursive;
 text-align: center;
 `
 
@@ -26,8 +26,4 @@ width: 60%
 
 export const ArsenalPanel = styled.div`
 width: 40%
-`;
-
-export const CreatorPanel = styled.div`
-border-style: solid;
 `;
