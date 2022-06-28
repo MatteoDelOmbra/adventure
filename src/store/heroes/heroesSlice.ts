@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Currency, Region, regionalCurrency } from "../../utils/regional"
+import { Currency, RegionSymbol, setCurrency, setOrigin } from "../../utils/regional"
 import { RootState } from "../store"
 
 export interface IHero {
     id: number
     name: string
-    origin: Region
+    origin: RegionSymbol
     currency: Currency
     money: Number
     arsenal: Array<Number> //id of bought weapons
@@ -21,16 +21,16 @@ const initialState: IHeroes = {
     all: [{
         id: 1,
         name: "Killjoy",
-        origin: "pl",
-        currency: regionalCurrency["pl"],
+        origin: setOrigin("pl"),
+        currency: setCurrency("pl"),
         money: 100,
         arsenal: [],
     },
     {
         id: 2,
         name: "Whither",
-        origin: "it",
-        currency: regionalCurrency["it"],
+        origin: setOrigin("pl"),
+        currency: setCurrency("it"),
         money: 23.78,
         arsenal: [],
     }]

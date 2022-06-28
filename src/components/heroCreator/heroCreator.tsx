@@ -1,10 +1,29 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import { add, IHero, selectHeroes } from "../../store/heroes/heroesSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { Regions, setCurrency, setOrigin } from "../../utils/regional";
 import { Select } from "../form/select/select";
 import { TextInput } from "../form/textInput/textInput";
 import { CreatorPanel } from "./heroCreator.styles";
 
 export function HeroCreator() {
+    const heroes = useAppSelector(selectHeroes)
+    const dispatch = useAppDispatch()
+
+    function create(name: string, symbol: string) {
+        let newHero: IHero = {
+            id: heroes.length + 1,
+            name: name,
+            origin: setOrigin(symbol),
+            currency: setCurrency(symbol),
+            money: 100,
+            arsenal: []
+        }
+        dispatch(add(newHero))
+    }
+
+
     return (
         <CreatorPanel>
             Create new hero
@@ -14,7 +33,7 @@ export function HeroCreator() {
                     origin: ''
                 }}
                 onSubmit={(values) => {
-                    console.log(values)
+                    create(values.name, values.origin)
                 }}
                 validationSchema={Yup.object({
                     name: Yup.string().max(10, "Too long!").required(),
@@ -30,17 +49,13 @@ export function HeroCreator() {
 
                     <Select label="Origin" name="origin">
                         <option>Select hero's origin</option>
-                        <option value="pl">Poland</option>
-                        <option value="it">Italy</option>
+                        {Regions.map((region) => (
+                            <option key={region.symbol} value={region.symbol}>{region.name}</option>
+                        ))}
                     </Select>
                     <button type="submit">Create!</button>
                 </Form>
-
-
             </Formik>
         </CreatorPanel>
     )
 }
-
-
-

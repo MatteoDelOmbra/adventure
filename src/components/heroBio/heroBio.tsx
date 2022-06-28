@@ -1,5 +1,6 @@
 import { IHero, IHeroes, selectHeroesState } from "../../store/heroes/heroesSlice";
 import { useAppSelector } from "../../store/hooks";
+import { BioTable } from "./heroBio.styles";
 
 export function HeroBio() {
     const heroesState: IHeroes = useAppSelector(selectHeroesState)
@@ -7,7 +8,21 @@ export function HeroBio() {
     return (
         <div>
             {hero === undefined ? <p> Select your hero</p> :
-                <p>Your hero is {hero.name}</p>}
+                <>
+                    <p>Your hero is {hero.name}</p>
+                    <BioTable>
+                        <tr>
+                            <th>Origin</th>
+                            <td>{hero.origin}</td>
+                        </tr>
+                        <tr>
+                            <th>Money</th>
+                            <td>{hero.money + " " + hero.currency}</td>
+                        </tr>
+                    </BioTable>
+                </>
+            }
+
         </div>
     )
 }
