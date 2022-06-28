@@ -12,12 +12,12 @@ export interface IHero {
     equippedWeapon?: Number //id of weapon
 }
 
-export interface Heroes {
+export interface IHeroes {
     currentHeroId?: Number
     all: Array<IHero>
 }
 
-const initialState: Heroes = {
+const initialState: IHeroes = {
     all: [{
         id: 1,
         name: "Killjoy",

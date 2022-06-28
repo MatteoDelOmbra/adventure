@@ -1,25 +1,13 @@
-import { Form, Formik, useFormik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Select } from "../form/select/select";
 import { TextInput } from "../form/textInput/textInput";
 import { CreatorPanel } from "./heroCreator.styles";
 
 export function HeroCreator() {
-    const formState = useFormik({
-        initialValues: {
-            name: "",
-            origin: ""
-        },
-        validationSchema: Yup.object({
-            name: Yup.string().max(10, "Too long!")
-        }),
-        onSubmit: (values) => { console.log(values.name) }
-    })
-
     return (
         <CreatorPanel>
             Create new hero
-
             <Formik
                 initialValues={{
                     name: '',

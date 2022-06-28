@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { IHero as IHero, selectHeroId, selectHeroes, selectHeroesState, Heroes, select } from "../../store/heroes/heroesSlice";
+import { IHero, select } from "../../store/heroes/heroesSlice";
+import { useAppDispatch } from "../../store/hooks";
 
 interface IProps {
     hero: IHero
