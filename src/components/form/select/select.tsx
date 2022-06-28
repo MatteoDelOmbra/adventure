@@ -1,13 +1,12 @@
 import { FieldHookConfig, useField } from 'formik';
-import { ClassAttributes, SelectHTMLAttributes } from 'react';
+import { ClassAttributes, FunctionComponent, SelectHTMLAttributes } from 'react';
 
-interface IProps {
+interface SelectProps {
     label: string
 }
+type finalProps = SelectProps & FieldHookConfig<string> & SelectHTMLAttributes<HTMLSelectElement> & ClassAttributes<HTMLSelectElement>
 
-type finalProps = IProps & FieldHookConfig<string> & SelectHTMLAttributes<HTMLSelectElement> & ClassAttributes<HTMLSelectElement>
-
-export const Select = (props: finalProps) => {
+const Select: FunctionComponent<finalProps> = (props) => {
     const [field, meta] = useField(props)
     return (
         <>
@@ -15,5 +14,7 @@ export const Select = (props: finalProps) => {
             <select {...field} {...props} />
             {meta.touched && meta.error ? (<div className="error">{meta.error}</div>) : null}
         </>
-    )
+    );
 }
+
+export default Select;

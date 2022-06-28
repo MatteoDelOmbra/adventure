@@ -1,13 +1,12 @@
 import { FieldHookConfig, useField } from 'formik';
-import { ClassAttributes, InputHTMLAttributes } from 'react';
+import { ClassAttributes, FunctionComponent, InputHTMLAttributes } from 'react';
 
-interface IProps {
+interface TextInputProps {
     label: string
 }
+type finalProps = TextInputProps & FieldHookConfig<string> & InputHTMLAttributes<HTMLInputElement> & ClassAttributes<HTMLInputElement>
 
-type finalProps = IProps & FieldHookConfig<string> & InputHTMLAttributes<HTMLInputElement> & ClassAttributes<HTMLInputElement>
-
-export const TextInput = (props: finalProps) => {
+const TextInput: FunctionComponent<finalProps> = (props) => {
     const [field, meta] = useField(props)
     return (
         <>
@@ -15,5 +14,8 @@ export const TextInput = (props: finalProps) => {
             <input className="text-input" {...field} {...props} />
             {meta.touched && meta.error ? (<p className="error">{meta.error}</p>) : null}
         </>
-    )
+    );
 }
+
+export default TextInput;
+

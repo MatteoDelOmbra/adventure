@@ -1,8 +1,13 @@
+import { FunctionComponent } from "react";
 import { IHero, IHeroes, selectHeroesState } from "../../store/heroes/heroesSlice";
 import { useAppSelector } from "../../store/hooks";
 import { BioTable } from "./heroBio.styles";
 
-export function HeroBio() {
+interface HeroBioProps {
+
+}
+
+const HeroBio: FunctionComponent<HeroBioProps> = () => {
     const heroesState: IHeroes = useAppSelector(selectHeroesState)
     let hero: IHero | undefined = heroesState.currentHeroId === undefined ? undefined : heroesState.all.find((el) => el.id === heroesState.currentHeroId)
     return (
@@ -24,5 +29,7 @@ export function HeroBio() {
             }
 
         </div>
-    )
+    );
 }
+
+export default HeroBio;

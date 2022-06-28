@@ -1,9 +1,10 @@
-import { Heroes } from "../heroes/heroes";
-import { HeroBio } from "../heroBio/heroBio";
-import { ColumnWrapper, Container, LeftPanel, RightPanel, GamePanel, ArsenalPanel } from "./App.styles";
-import { HeroCreator } from "../heroCreator/heroCreator";
+import { FunctionComponent } from "react";
+import HeroBio from "../heroBio/heroBio";
+import HeroCreator from "../heroCreator/heroCreator";
+import Heroes from "../heroes/heroes";
+import { ArsenalPanel, ColumnWrapper, Container, GamePanel, LeftPanel, RightPanel } from "./App.styles";
 
-function App() {
+const App: FunctionComponent = () => {
   return (
     <Container>
       <h1>Adventure Game!</h1>
@@ -11,7 +12,15 @@ function App() {
         <LeftPanel>
           <Heroes />
           <button id="generate-mob">Zmiana stworka</button>                                 {/*React component*/}
-          <button id="region">Zmiana regionu</button>                                       {/*React component*/}
+          <button id="region">Change region</button>                                       {/*React component*/}
+          {
+            /*
+            dodaj do hero info w jakim regionie sie obecnie znajduje ( w sumie nie, bo to wiemy patrzac na walute)
+            wez liste, usun z niej region w ktorym jest bohater (wedle waluty) i wylosuj jeden region
+            wyslij async request do https://exchangerate.host/#/docs aby przeliczyc kase bohatera
+            wprowadz zmiany do money i currency bohatera
+            */
+          }
         </LeftPanel>
 
         <RightPanel>

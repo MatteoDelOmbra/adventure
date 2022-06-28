@@ -1,8 +1,9 @@
+import { FunctionComponent } from "react";
 import { IHero, selectHeroes } from "../../store/heroes/heroesSlice";
 import { useAppSelector } from "../../store/hooks";
-import { HeroSelector } from "../heroSelector/heroSelector";
+import HeroSelector from "../heroSelector/heroSelector";
 
-export function Heroes() {
+const Heroes: FunctionComponent = () => {
     const heroes = useAppSelector(selectHeroes)
     return (
         <div>
@@ -17,3 +18,5 @@ export function Heroes() {
         </div>
     )
 }
+
+export default Heroes;
