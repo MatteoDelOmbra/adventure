@@ -1,10 +1,8 @@
-import { configureStore, ThunkAction, Action, Store } from "@reduxjs/toolkit";
-import counterReducer from "./counter/counterSlice";
+import { Action, configureStore, Store, ThunkAction } from "@reduxjs/toolkit";
 import heroesSlice from "./heroes/heroesSlice";
 
 export const store: Store = configureStore({
   reducer: {
-    counter: counterReducer,
     heroes: heroesSlice,
   },
 });

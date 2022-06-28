@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
-import { IHero, selectHeroes } from "../../store/heroes/heroesSlice";
+import { selectHeroes } from "../../store/heroes/heroesSlice";
 import { useAppSelector } from "../../store/hooks";
+import { IHero } from "../../utils/heroHelper";
 import HeroSelector from "../heroSelector/heroSelector";
 
 const Heroes: FunctionComponent = () => {

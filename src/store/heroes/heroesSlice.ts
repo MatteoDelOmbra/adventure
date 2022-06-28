@@ -1,21 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Currency, RegionSymbol, setCurrency, setOrigin } from "../../utils/regional"
+import { IHero, IHeroes } from "../../utils/heroHelper"
+import { setCurrency, setOrigin } from "../../utils/regional"
 import { RootState } from "../store"
-
-export interface IHero {
-    id: number
-    name: string
-    origin: RegionSymbol
-    currency: Currency
-    money: Number
-    arsenal: Array<Number> //id of bought weapons
-    equippedWeapon?: Number //id of weapon
-}
-
-export interface IHeroes {
-    currentHeroId?: Number
-    all: Array<IHero>
-}
 
 const initialState: IHeroes = {
     all: [{

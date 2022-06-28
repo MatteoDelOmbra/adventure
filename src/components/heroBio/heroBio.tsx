@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
-import { IHero, IHeroes, selectHeroesState } from "../../store/heroes/heroesSlice";
+import { selectHeroesState } from "../../store/heroes/heroesSlice";
 import { useAppSelector } from "../../store/hooks";
+import { IHero, IHeroes } from "../../utils/heroHelper";
 import { BioTable } from "./heroBio.styles";
 
 interface HeroBioProps {

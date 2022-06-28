@@ -1,8 +1,9 @@
 import { Form, Formik } from "formik";
 import { FunctionComponent } from "react";
 import * as Yup from "yup";
-import { add, IHero, selectHeroes } from "../../store/heroes/heroesSlice";
+import { add, selectHeroes } from "../../store/heroes/heroesSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { IHero } from "../../utils/heroHelper";
 import { Regions, setCurrency, setOrigin } from "../../utils/regional";
 import Select from "../form/select/select";
 import TextInput from "../form/textInput/textInput";

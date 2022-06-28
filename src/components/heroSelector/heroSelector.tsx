@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
-import { IHero, select } from "../../store/heroes/heroesSlice";
+import { select } from "../../store/heroes/heroesSlice";
 import { useAppDispatch } from "../../store/hooks";
+import { IHero } from "../../utils/heroHelper";
 
 interface HeroSelectorProps {
     hero: IHero
@@ -9,9 +10,9 @@ interface HeroSelectorProps {
 const HeroSelector: FunctionComponent<HeroSelectorProps> = (props) => {
     const dispatch = useAppDispatch();
     return (
-        <a href="#" onClick={() => dispatch(select(props.hero.id))} >
+        <button onClick={() => dispatch(select(props.hero.id))} >
             {props.hero.name}
-        </a>
+        </button>
     )
 }
 
