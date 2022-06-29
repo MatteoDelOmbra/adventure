@@ -8,7 +8,7 @@ interface HeroSelectorProps {
 }
 
 const HeroSelector: FunctionComponent<HeroSelectorProps> = (props) => {
-    const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch()
     return (
         <button onClick={() => dispatch(select(props.hero.id))} >
             {props.hero.name}

@@ -1,7 +1,7 @@
 export type RegionSymbol = "pl" | "us" | "it" | "uk";
 export type Currency = "PLN" | "USD" | "EUR" | "GBP";
 
-interface IRegion {
+export interface IRegion {
     symbol: RegionSymbol
     name: string
     currency: Currency

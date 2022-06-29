@@ -17,7 +17,7 @@ const initialState: IHeroes = {
         name: "Whither",
         origin: setOrigin("pl"),
         currency: setCurrency("it"),
-        money: 23.78,
+        money: 66,
         arsenal: [],
     }]
 }
@@ -30,13 +30,17 @@ export const heroesSlice = createSlice({
         add: (state, action: PayloadAction<IHero>) => {
             state.all.push(action.payload)
         },
-        select: (state, action: PayloadAction<Number>) => {
+        select: (state, action: PayloadAction<number>) => {
             state.currentHeroId = action.payload
+        },
+        update: (state, action: PayloadAction<IHero>) => {
+            const heroes = state.all.map(hero => hero.id === action.payload.id ? action.payload : hero)
+            state.all = heroes
         }
     }
 })
 
-export const { add, select } = heroesSlice.actions
+export const { add, select, update } = heroesSlice.actions
 export const selectHeroesState = (state: RootState) => state.heroes
 export const selectHeroes = (state: RootState) => state.heroes.all
 export const selectHeroId = (state: RootState) => state.heroes.currentHeroId

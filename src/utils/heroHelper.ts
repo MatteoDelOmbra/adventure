@@ -5,12 +5,12 @@ export interface IHero {
     name: string
     origin: RegionSymbol
     currency: Currency
-    money: Number
-    arsenal: Array<Number> //id of bought weapons
-    equippedWeapon?: Number //id of weapon
+    money: number
+    arsenal: Array<number> //id of bought weapons
+    equippedWeapon?: number //id of weapon
 }
 
 export interface IHeroes {
-    currentHeroId?: Number
+    currentHeroId?: number
     all: Array<IHero>
 }

@@ -1,35 +1,29 @@
 import { FunctionComponent } from "react";
-import { selectHeroesState } from "../../store/heroes/heroesSlice";
-import { useAppSelector } from "../../store/hooks";
-import { IHero, IHeroes } from "../../utils/heroHelper";
+import { IHero } from "../../utils/heroHelper";
 import { BioTable } from "./heroBio.styles";
 
 interface HeroBioProps {
-
+    hero: IHero
 }
 
-const HeroBio: FunctionComponent<HeroBioProps> = () => {
-    const heroesState: IHeroes = useAppSelector(selectHeroesState)
-    let hero: IHero | undefined = heroesState.currentHeroId === undefined ? undefined : heroesState.all.find((el) => el.id === heroesState.currentHeroId)
+const HeroBio: FunctionComponent<HeroBioProps> = (props) => {
     return (
-        <div>
-            {hero === undefined ? <p> Select your hero</p> :
-                <>
-                    <p>Your hero is {hero.name}</p>
-                    <BioTable>
-                        <tr>
-                            <th>Origin</th>
-                            <td>{hero.origin}</td>
-                        </tr>
-                        <tr>
-                            <th>Money</th>
-                            <td>{hero.money + " " + hero.currency}</td>
-                        </tr>
-                    </BioTable>
-                </>
-            }
+        <>
+            <p>Your hero is {props.hero.name}</p>
+            <BioTable>
+                <tbody>
+                    <tr>
+                        <th>Origin</th>
+                        <td>{props.hero.origin}</td>
+                    </tr>
+                    <tr>
+                        <th>Money (Currency depends on current location)</th>
+                        <td>{props.hero.money + " " + props.hero.currency}</td>
+                    </tr>
+                </tbody>
+            </BioTable>
+        </>
 
-        </div>
     );
 }
 
